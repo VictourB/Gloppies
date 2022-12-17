@@ -1,0 +1,159 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://04B_30__.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/characters_packed.png" type="Texture" id=2]
+[ext_resource path="res://MainMenu.gd" type="Script" id=3]
+[ext_resource path="res://GUITheme.tres" type="Theme" id=4]
+[ext_resource path="res://Assets/WASDSPACE.png" type="Texture" id=5]
+[ext_resource path="res://GUITheme_smaller.tres" type="Theme" id=6]
+[ext_resource path="res://Assets/BRACKETS.png" type="Texture" id=7]
+[ext_resource path="res://Assets/TAB.png" type="Texture" id=8]
+[ext_resource path="res://Assets/simple_gradient.png" type="Texture" id=9]
+
+[sub_resource type="DynamicFont" id=20]
+size = 43
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=19]
+default_font = SubResource( 20 )
+RichTextLabel/colors/default_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 48, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 72, 0, 24, 24 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 24, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 24, 24, 24, 24 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 15 ), SubResource( 2 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 10.0
+texture = ExtResource( 9 )
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 5.0
+margin_top = 6.0
+margin_right = 309.0
+margin_bottom = 56.0
+theme = SubResource( 19 )
+text = "GLOPPIES"
+scroll_active = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -102.0
+margin_top = -62.0
+margin_right = 9.0
+margin_bottom = -9.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource( 6 )
+alignment = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+margin_right = 111.0
+margin_bottom = 15.0
+focus_neighbour_top = NodePath("../ExitButton")
+text = "Start"
+icon_align = 2
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+margin_top = 19.0
+margin_right = 111.0
+margin_bottom = 34.0
+text = "Options"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+margin_top = 38.0
+margin_right = 111.0
+margin_bottom = 53.0
+focus_neighbour_bottom = NodePath("../StartButton")
+text = "Exit"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 63.0385
+margin_top = 132.0
+margin_right = 180.038
+margin_bottom = 155.0
+text = "Have Fun!"
+
+[node name="WASDSPACE" type="Sprite" parent="Label"]
+position = Vector2( -29.5385, 7.38462 )
+texture = ExtResource( 5 )
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 62.0
+margin_top = 56.0
+margin_right = 252.0
+margin_bottom = 79.0
+text = "Choose Your Gloppie"
+
+[node name="TAB" type="Sprite" parent="Label2"]
+position = Vector2( -29.5385, 7.38462 )
+texture = ExtResource( 8 )
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 61.5385
+margin_top = 94.0
+margin_right = 233.538
+margin_bottom = 117.0
+text = "Browse The Tunes"
+
+[node name="BRACKETS" type="Sprite" parent="Label3"]
+position = Vector2( -29.5385, 7.38462 )
+texture = ExtResource( 7 )
+
+[node name="Gloppie2" type="AnimatedSprite" parent="."]
+position = Vector2( 341, 12 )
+frames = SubResource( 3 )
+animation = "walk"
+frame = 1
+playing = true
+flip_h = true
+flip_v = true
+
+[node name="Gloppie" type="AnimatedSprite" parent="."]
+position = Vector2( 344, 168 )
+frames = SubResource( 6 )
+animation = "walk"
+playing = true
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]

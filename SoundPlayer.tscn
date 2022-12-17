@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://SoundPlayer.gd" type="Script" id=1]
+[ext_resource path="res://Sound/sfx_hurt.wav" type="AudioStream" id=2]
+[ext_resource path="res://Sound/sfx_landing.wav" type="AudioStream" id=3]
+[ext_resource path="res://Sound/sfx_jump.wav" type="AudioStream" id=4]
+[ext_resource path="res://Sound/sfx_bigJump.wav" type="AudioStream" id=5]
+
+[node name="SoundPlayer" type="Node"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="AudioPlayers" type="Node" parent="."]
+
+[node name="AudioJump" type="AudioStreamPlayer" parent="AudioPlayers"]
+stream = ExtResource( 4 )
+bus = "Sound Effects"
+
+[node name="AudioLanding" type="AudioStreamPlayer" parent="AudioPlayers"]
+stream = ExtResource( 3 )
+bus = "Sound Effects"
+
+[node name="AudioHurt" type="AudioStreamPlayer" parent="AudioPlayers"]
+stream = ExtResource( 2 )
+bus = "Sound Effects"
+
+[node name="AudioBigJump" type="AudioStreamPlayer" parent="AudioPlayers"]
+stream = ExtResource( 5 )
+bus = "Sound Effects"
+
+[node name="AudioSelect" type="AudioStreamPlayer" parent="AudioPlayers"]
+bus = "Sound Effects"
+
+[node name="AudioCheckpoint" type="AudioStreamPlayer" parent="AudioPlayers"]
+bus = "Sound Effects"
+
+[node name="AudioDoor" type="AudioStreamPlayer" parent="AudioPlayers"]
+bus = "Sound Effects"
+
+[node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="AudioPlayers"]
+bus = "Sound Effects"

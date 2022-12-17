@@ -1,0 +1,103 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Player/player.gd" type="Script" id=1]
+[ext_resource path="res://Player/player_blue_skin.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://Player/DefaultPlayerMovementData.tres" type="Resource" id=3]
+[ext_resource path="res://Assets/spiral_particle.png" type="Texture" id=4]
+
+[sub_resource type="CanvasItemMaterial" id=5]
+
+[sub_resource type="ParticlesMaterial" id=6]
+lifetime_randomness = 0.5
+flag_disable_z = true
+spread = 15.0
+flatness = 1.0
+gravity = Vector3( 0, -3, 0 )
+initial_velocity = 20.0
+initial_velocity_random = 0.5
+angular_velocity = 180.0
+angular_velocity_random = 0.5
+orbit_velocity = -1.0
+orbit_velocity_random = 0.3
+radial_accel = 180.0
+radial_accel_random = 0.5
+angle = 180.0
+angle_random = 0.5
+scale = 0.3
+scale_random = 0.5
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 7.0
+height = 2.0
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 7, 4.5 )
+
+[node name="player" type="KinematicBody2D"]
+position = Vector2( 0, -14 )
+z_index = 100
+collision_layer = 2
+script = ExtResource( 1 )
+moveData = ExtResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, 3 )
+frames = ExtResource( 2 )
+animation = "jump"
+playing = true
+flip_h = true
+
+[node name="Particles2D" type="Particles2D" parent="."]
+material = SubResource( 5 )
+position = Vector2( -7, 14 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+emitting = false
+amount = 4
+lifetime = 0.2
+one_shot = true
+explosiveness = 1.0
+randomness = 0.5
+process_material = SubResource( 6 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 6 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource( 4 )
+
+[node name="LadderCheck" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 16 )
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="jumpBufferTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="coyoteJumpTimer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[node name="sceneStartedTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+autostart = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+
+[node name="AboveRaycast" type="RayCast2D" parent="."]
+position = Vector2( -7, 0 )
+enabled = true
+cast_to = Vector2( 0, -12 )
+
+[node name="AboveRaycast2" type="RayCast2D" parent="."]
+position = Vector2( 7, 0 )
+enabled = true
+cast_to = Vector2( 0, -12 )
+
+[connection signal="timeout" from="jumpBufferTimer" to="." method="_on_jumpBufferTimer_timeout"]
+[connection signal="timeout" from="coyoteJumpTimer" to="." method="_on_coyoteJumpTimer_timeout"]

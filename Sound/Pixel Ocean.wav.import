@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Pixel Ocean.wav-c76e5e1c4764a12d951a5537fc5bb73e.sample"
+
+[deps]
+
+source_file="res://Sound/Pixel Ocean.wav"
+dest_files=[ "res://.import/Pixel Ocean.wav-c76e5e1c4764a12d951a5537fc5bb73e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=2293200
+compress/mode=0
