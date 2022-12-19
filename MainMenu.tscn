@@ -59,9 +59,9 @@ script = ExtResource( 3 )
 [node name="ColorRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 10.0
 texture = ExtResource( 9 )
-stretch_mode = 4
+expand = true
+stretch_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 margin_left = 5.0
@@ -78,31 +78,30 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -102.0
-margin_top = -62.0
-margin_right = 9.0
-margin_bottom = -9.0
+margin_top = -84.0
+margin_bottom = -83.0
 mouse_filter = 0
 mouse_default_cursor_shape = 2
 theme = ExtResource( 6 )
 alignment = 2
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
-margin_right = 111.0
-margin_bottom = 15.0
+margin_right = 102.0
+margin_bottom = 21.0
 focus_neighbour_top = NodePath("../ExitButton")
 text = "Start"
 icon_align = 2
 
 [node name="OptionsButton" type="Button" parent="VBoxContainer"]
-margin_top = 19.0
-margin_right = 111.0
-margin_bottom = 34.0
+margin_top = 25.0
+margin_right = 102.0
+margin_bottom = 46.0
 text = "Options"
 
 [node name="ExitButton" type="Button" parent="VBoxContainer"]
-margin_top = 38.0
-margin_right = 111.0
-margin_bottom = 53.0
+margin_top = 50.0
+margin_right = 102.0
+margin_bottom = 71.0
 focus_neighbour_bottom = NodePath("../StartButton")
 text = "Exit"
 

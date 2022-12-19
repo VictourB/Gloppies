@@ -19,29 +19,29 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -153.0
-margin_top = -16.0
-margin_right = -4.0
+margin_left = -250.0
+margin_top = -27.0
+margin_right = -5.0
+margin_bottom = -5.0
 custom_constants/separation = 3
 alignment = 2
 
 [node name="TextureRect" type="TextureRect" parent="Info/HBoxContainer2"]
-margin_right = 16.0
-margin_bottom = 16.0
+margin_left = 4.0
+margin_right = 20.0
+margin_bottom = 22.0
 texture = ExtResource( 5 )
 
 [node name="TrackLabel" type="Label" parent="Info/HBoxContainer2"]
-margin_left = 19.0
-margin_top = 1.0
-margin_right = 92.0
-margin_bottom = 14.0
+margin_left = 23.0
+margin_right = 148.0
+margin_bottom = 21.0
 text = "Current Track:"
 
 [node name="ArtistLabel" type="Label" parent="Info/HBoxContainer2"]
-margin_left = 95.0
-margin_top = 1.0
-margin_right = 149.0
-margin_bottom = 14.0
+margin_left = 151.0
+margin_right = 245.0
+margin_bottom = 21.0
 text = "by Lucilius"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Info"]
@@ -57,8 +57,8 @@ playing = true
 flip_h = true
 
 [node name="GloppieLabel" type="Label" parent="Info/HBoxContainer"]
-margin_right = 37.0
-margin_bottom = 13.0
+margin_right = 63.0
+margin_bottom = 21.0
 text = "Gloppie"
 
 [node name="PauseMenu" parent="." instance=ExtResource( 1 )]
